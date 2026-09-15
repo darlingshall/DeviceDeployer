@@ -25,4 +25,8 @@ if ! ping -c 2 -W 2 "$GATEWAY" > /dev/null 2>&1; then
     else
         echo "$(date '+%Y-%m-%d %H:%M:%S') - [错误] eth0 重启后依然无法连通网关！" >> "$LOG_FILE"
     fi
+#    # 6. 【防爆盘机制】限制日志只保留最新 300 行
+#    if [ -f "$LOG_FILE" ]; then
+#        tail -n 300 "$LOG_FILE" > "${LOG_FILE}.tmp" && mv "${LOG_FILE}.tmp" "$LOG_FILE"
+#    fi
 fi
