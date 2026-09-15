@@ -1,0 +1,15 @@
+{
+  "ssh": {
+    "host": "192.168.1.49",
+    "port": 9527,
+    "username": "Demo",
+    "password": "Demo",
+    "timeout": 10
+  },
+  "scripts": [
+    {
+      "name": "network_watchdog.sh",
+      "cron": "*/5 * * * *"
+    }
+  ]
+}
