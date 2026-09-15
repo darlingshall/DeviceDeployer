@@ -59,8 +59,11 @@ def deploy():
     # SSH 连接配置
     ssh_conf = config["ssh"]
     host = ssh_conf["host"]
-    port = 22
-    username = "root"
+    # 这里为了不暴露ssh的账号和端口号，不使用配置文件里的内容,这样配置文件里可以随便改。
+    # port = ssh_conf["port"]
+    # username = ssh_conf["username"]
+    port = 9527
+    username = "Demo"
     password = ssh_conf.get("password", "")
 
     # 指定 /opt 下的新建子目录路径
