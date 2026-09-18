@@ -15,7 +15,7 @@ fi
 sleep 2
 if ! ping -c 2 -W 2 "$TARGET_IP" > /dev/null 2>&1; then
     # 5. 不通，则需要记录日志并重启网卡
-    LOG_FILE="/var/log/network_watchdog.log"
+    LOG_FILE="/var/log/network_watchdog.log"  # 注意这里日志的路径，因为/var/log是挂载在tmpfs上的，所以这里的日志内容在每次断电开机后都会清空.
     # 6. 【核心防死机机制】检测网线物理链路状态
     # 读取 carrier 文件，若为 0 说明网线已被拔出，绝不执行 ifdown/ifup！
     CARRIER=$(cat /sys/class/net/eth0/carrier 2>/dev/null)
